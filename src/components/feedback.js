@@ -49,7 +49,6 @@ function FeedBackComponent({onClose}){
             if (response.ok){
                 console.log('Feedback submitted', body)
                 onClose();
-                alert('Thanks For Your Feedback')
             }
             else{
                 const errorData = await response.json();
