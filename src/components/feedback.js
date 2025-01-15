@@ -15,7 +15,7 @@ function FeedBackComponent({onClose}){
     useEffect(() => {
         const fetchCsrfToken = async () => {
             try {
-                const response = await fetch('http://127.0.0.1:8000/api/csrf/');
+                const response = await fetch('/api/csrf/');
                 const data = await response.json();
                 setCsrfToken(data.csrfToken);
             } catch (error) {
@@ -34,7 +34,7 @@ function FeedBackComponent({onClose}){
         const body = Object.fromEntries(formData.entries());
 
         try{
-            const response = await fetch('http://127.0.0.1:8000/api/feedback/', {
+            const response = await fetch('/api/feedback/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
