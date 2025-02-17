@@ -33,6 +33,8 @@ function FeedBackComponent({onClose}){
         const formData = new FormData(e.target);
         const body = Object.fromEntries(formData.entries());
 
+        console.log(csrfToken);
+
         try{
             const response = await fetch('/api/feedback/', {
                 method: 'POST',
