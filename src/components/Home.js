@@ -67,14 +67,14 @@ function Header(props){
                         <a href="#projects" onMouseMove={props.handleMove} onMouseOut={props.handleOut} style={props.pro?{backgroundColor:'rgb(0, 157, 255)', borderRadius:'5px', boxShadow:' 0px 0px 10px rgb(0, 157, 255)'}:{backgroundColor:'transparent'}}>Projects</a>
                         <a href="#contact" onMouseMove={props.handleMove} onMouseOut={props.handleOut} style={props.con?{backgroundColor:'rgb(34, 255, 0)', borderRadius:'5px', boxShadow:' 0px 0px 10px rgb(34, 255, 0)'}:{backgroundColor:'transparent'}}>Contact</a>
                         <a href="https://github.com/JayakarAddepalli/Portfolio_react" target='_blank' rel='noreferrer' onMouseMove={props.handleMove} onMouseOut={props.handleOut}><img src={starIcon} alt='starIcon'></img></a>
-                        <div id='mousePointer' ref={outerMouse}>
-                            <div id='innerPointer' style={props.innerMouse?{transform:'scale(1.5,1.5)', transition:'all 1s'}:{transform:'scale(1,1)', transition:'all 1s'}}></div>
-                        </div>
                     </div>
                     <span className='Menu' onClick={HandleClick} style={{opacity : clicked ? 0.5 : 1}}>
                         <img src={menu} alt='Menu'></img>
                     </span>
                 </nav>
+                <div id='mousePointer' ref={outerMouse}>
+                    <div id='innerPointer' style={props.innerMouse?{transform:'scale(1.5,1.5)', transition:'all 1s'}:{transform:'scale(1,1)', transition:'all 1s'}}></div>
+                </div>
             </header>
 
             {showModel && createPortal(
