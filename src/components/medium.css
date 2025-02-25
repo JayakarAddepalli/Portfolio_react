@@ -86,7 +86,7 @@ nav a{
     max-width: 100%;
     height: 40vh;
     position: absolute;
-    top: 12vh;
+    top: 8vh;
     background-color: rgb(96, 96, 96);
     backdrop-filter: blur(5px);
     flex-direction: column;

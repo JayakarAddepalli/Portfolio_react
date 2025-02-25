@@ -10,6 +10,8 @@ function Header(props){
 
       
     const outerMouse = useRef(null);
+    const navRef = useRef(null);
+    const menuRef = useRef(null);
 
     const handleMove = (e)=>{
         outerMouse.current.style.top = e.clientY+'px'
@@ -52,7 +54,35 @@ function Header(props){
         return () => clearTimeout(timer);  // Cleanup the timeout
     }, []);
 
-  
+    useEffect(() => {
+        function handleOutsideClick(event) {
+            if (
+                window.innerWidth <= 960 &&
+                navRef.current && 
+                !navRef.current.contains(event.target) && 
+                menuRef.current && 
+                !menuRef.current.contains(event.target)
+            ) {
+                setClick(false);
+            }
+        }
+
+        function handleScroll() {
+            if(window.innerWidth <= 960){
+                setClick(false);
+            }
+        }
+
+        document.addEventListener('click', handleOutsideClick);
+        document.addEventListener('touchstart', handleOutsideClick);
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            document.removeEventListener('click', handleOutsideClick);
+            document.removeEventListener('touchstart', handleOutsideClick);
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     return(
         <>
@@ -61,14 +91,14 @@ function Header(props){
                     <div className='logo'>
                         <img src={logo} alt="Logo"></img>
                     </div>
-                    <div className='navList' style={{ visibility: clicked ? 'visible' : 'hidden'}}>
+                    <div className='navList' ref={navRef} style={{ visibility: clicked ? 'visible' : 'hidden'}}>
                         <a href="#about" onMouseMove={props.handleMove} onMouseOut={props.handleOut} style={props.abo?{backgroundColor:'rgb(255, 0, 119)', borderRadius:'5px', boxShadow:' 0px 0px 10px rgb(255, 0, 119)'}:{backgroundColor:'transparent'}}>About</a>
                         <a href="#skills" onMouseMove={props.handleMove} onMouseOut={props.handleOut} style={props.ski?{backgroundColor:'rgb(170, 0, 255)', borderRadius:'5px', boxShadow:' 0px 0px 10px rgb(170, 0, 255)'}:{backgroundColor:'transparent'}}>Skills</a>
                         <a href="#projects" onMouseMove={props.handleMove} onMouseOut={props.handleOut} style={props.pro?{backgroundColor:'rgb(0, 157, 255)', borderRadius:'5px', boxShadow:' 0px 0px 10px rgb(0, 157, 255)'}:{backgroundColor:'transparent'}}>Projects</a>
                         <a href="#contact" onMouseMove={props.handleMove} onMouseOut={props.handleOut} style={props.con?{backgroundColor:'rgb(34, 255, 0)', borderRadius:'5px', boxShadow:' 0px 0px 10px rgb(34, 255, 0)'}:{backgroundColor:'transparent'}}>Contact</a>
                         <a href="https://github.com/JayakarAddepalli/Portfolio_react" target='_blank' rel='noreferrer' onMouseMove={props.handleMove} onMouseOut={props.handleOut}><img src={starIcon} alt='starIcon'></img></a>
                     </div>
-                    <span className='Menu' onClick={HandleClick} style={{opacity : clicked ? 0.5 : 1}}>
+                    <span className='Menu' ref={menuRef} onClick={HandleClick} style={{opacity : clicked ? 0.5 : 1}}>
                         <img src={menu} alt='Menu'></img>
                     </span>
                 </nav>
