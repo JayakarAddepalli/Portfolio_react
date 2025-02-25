@@ -361,6 +361,14 @@ nav a{
     .backgroundLayout{
         display: none !important;
     }
+
+    .leftHeroSec>div{
+        max-height: 40vh !important;
+    }
+
+    .leftHeroSec>div+div{
+        max-height: 50vh !important;
+    }
         
     .leftHeroSec>div+div>img{
         max-width: 60% !important;
