@@ -12,6 +12,8 @@
     --card-background-color: rgba(238, 238, 238, 0);
     --contact-background: rgba(241, 241, 241, 0.623);
     --contact-text-color: rgba(0, 0, 0, 0.623);
+    --grayscale-percent: 100%;
+    --opacity-percent:0.3;
 }
 
 [data-theme="dark"]{
@@ -24,6 +26,8 @@
     --card-background-color: rgba(73, 73, 73, 0.414);
     --contact-background: rgb(3, 0, 29, 0.623);
     --contact-text-color: rgba(241, 241, 241, 0.623);
+    --grayscale-percent: 0%;
+    --opacity-percent:0.8;
 }
 
 header{
@@ -637,9 +641,9 @@ nav a:nth-child(6){
 .backgroundLayout>img{
     max-width: 15%;
     max-height: 30%;
-    opacity: 0.3;
+    opacity: var(--opacity-percent);
     z-index: -1;
-    filter:grayscale(100%);
+    filter:grayscale(var(--grayscale-percent));
     position: relative;
     top: -10%;
     left: -20%; 
