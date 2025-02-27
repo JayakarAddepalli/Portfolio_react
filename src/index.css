@@ -1,3 +1,5 @@
+@import url('./components/Home.css');
+
 *{
   box-sizing: border-box;
   margin: 0px;
@@ -17,6 +19,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  background-color: var(--background-color);
 }
 
 body:hover #mousePointer{
