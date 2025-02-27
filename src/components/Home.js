@@ -13,6 +13,23 @@ function Header(props){
     const navRef = useRef(null);
     const menuRef = useRef(null);
 
+    const [theme, setTheme] = useState("light");
+
+    const onToggle = (event)=>{
+        if(event.target.checked){
+            setTheme('dark')
+        }
+        else{
+            setTheme('light')
+        }
+    }
+
+    useEffect(()=>{
+        document.documentElement.setAttribute('data-theme', theme)
+        localStorage.setItem('theme', theme)
+    }, [theme])
+
+
     const handleMove = (e)=>{
         outerMouse.current.style.top = e.clientY+'px'
         outerMouse.current.style.left = e.clientX+'px'
@@ -102,6 +119,10 @@ function Header(props){
                         <img src={menu} alt='Menu'></img>
                     </span>
                 </nav>
+                <label className='switch'>
+                    <input type='checkbox' name='toggleTheme' onClick={onToggle}></input>
+                    <span className='slider round'></span>
+                </label>
                 <div id='mousePointer' ref={outerMouse}>
                     <div id='innerPointer' style={props.innerMouse?{transform:'scale(1.5,1.5)', transition:'all 1s'}:{transform:'scale(1,1)', transition:'all 1s'}}></div>
                 </div>
