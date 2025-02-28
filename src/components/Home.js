@@ -19,7 +19,9 @@ function Header(props){
     const onToggle = (event)=>{
         if(event.target.checked){
             setTheme('dark');
-            setShowPopup(false);
+            setTimeout(()=>{
+                setShowPopup(false);
+            }, 500)
         }
         else{
             setTheme('light');
