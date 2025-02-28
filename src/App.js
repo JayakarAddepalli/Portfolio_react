@@ -34,6 +34,17 @@ function App() {
   
   const [innerMouse, setInnerMouse] = useState(false);
 
+  const [uparrowImg, setUpArrowImg] = useState(false);
+  const theme = localStorage.getItem('theme');
+
+  useEffect(()=>{
+    if(theme === 'light'){
+      setUpArrowImg(false);
+    }else{
+      setUpArrowImg(true);
+    }
+  },[theme])
+
   const handleScroll = ()=>{
     console.log(aboutRef.current.getBoundingClientRect().top)
 
@@ -96,7 +107,7 @@ function App() {
       <SkillsSec skillsArr = {skillsArr} toolsArr = {toolsArr} />
       <ProjectSec handleMove={handleMove} handleOut={handleOut} />
       <ContactSec handleMove={handleMove} handleOut={handleOut} />
-      <HomeComp upScroll={upScroll} handleMove={handleMove} handleOut={handleOut} />
+      <HomeComp upScroll={upScroll} uparrowBolImg={uparrowImg} handleMove={handleMove} handleOut={handleOut} />
     </div>
   );
 }
