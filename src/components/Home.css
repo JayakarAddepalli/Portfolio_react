@@ -14,6 +14,7 @@
     --contact-text-color: rgba(0, 0, 0, 0.623);
     --grayscale-percent: 100%;
     --opacity-percent:0.3;
+    --mouse-background: rgba(0, 0, 0, 0.734);
     /* --popUp-background: rgba(0, 136, 255, 0.716);
     --popUp-border: rgba(0, 136, 255, 0); */
 }
@@ -30,6 +31,7 @@
     --contact-text-color: rgba(241, 241, 241, 0.623);
     --grayscale-percent: 0%;
     --opacity-percent:0.8;
+    --mouse-background: rgba(255, 255, 255, 0.734);
     /* --popUp-background: rgba(0, 136, 255, 0);
     --popUp-border: rgba(0, 136, 255, 0.716); */
 }
@@ -206,7 +208,7 @@ nav>div>img{
     height: 2rem;
     padding: 0px;
     background-color: rgba(89, 43, 43, 0);
-    border: solid 0.05rem;
+    border: solid 0.05rem var(--mouse-background);
     border-radius: 50%;
     z-index: 1000 !important;
     pointer-events:none;
@@ -216,7 +218,7 @@ nav>div>img{
 #innerPointer{
     width: 0.8rem;
     height: 0.8rem;
-    background-color: rgba(0, 0, 0, 0.734);
+    background-color: var(--mouse-background);
     border: none;
     border-radius: 50%;
 }

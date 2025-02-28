@@ -5,6 +5,7 @@ import todoBanner from '../assets/banners/todo.png'
 import formBanner from '../assets/banners/Screenshot 2024-06-26 120708.png'
 import ageBanner from '../assets/banners/Screenshot 2024-06-26 120633.png'
 import link from '../assets/link.png'
+import whitelink from '../assets/whitelink.png'
 import starIcon from '../assets/star.png'
 
 function ProjectSec(props){
@@ -62,7 +63,7 @@ function ProjectSec(props){
             <p>built using {i.skills} </p>
             <p>
                 <a href={i.gitRepo} target='_blank' rel='noreferrer' onMouseMove={props.handleMove} onMouseOut={props.handleOut}><img src={starIcon} alt='gitRepo'></img></a> 
-                <a href={i.proLink} target='_blank' rel='noreferrer' onMouseMove={props.handleMove} onMouseOut={props.handleOut}><img src={link} alt='SiteLink'></img></a>
+                <a href={i.proLink} target='_blank' rel='noreferrer' onMouseMove={props.handleMove} onMouseOut={props.handleOut}><img src={props.linkBolImg ? whitelink : link} alt='SiteLink'></img></a>
             </p>
         </span>
     </div>) 
