@@ -35,13 +35,16 @@ function App() {
   const [innerMouse, setInnerMouse] = useState(false);
 
   const [uparrowImg, setUpArrowImg] = useState(false);
+  const [linkImg, setLinkImg] = useState(false);
   const theme = localStorage.getItem('theme');
 
   useEffect(()=>{
-    if(theme === 'light'){
+    if(theme == 'light'){
       setUpArrowImg(false);
+      setLinkImg(false);
     }else{
       setUpArrowImg(true);
+      setLinkImg(true);
     }
   },[theme])
 
@@ -105,7 +108,7 @@ function App() {
       <HeroSection skillsArr = {skillsArr}/>
       <AboutSec aboutRef={aboutRef} handleMove={handleMove} handleOut={handleOut} />
       <SkillsSec skillsArr = {skillsArr} toolsArr = {toolsArr} />
-      <ProjectSec handleMove={handleMove} handleOut={handleOut} />
+      <ProjectSec linkBolImg={linkImg} handleMove={handleMove} handleOut={handleOut} />
       <ContactSec handleMove={handleMove} handleOut={handleOut} />
       <HomeComp upScroll={upScroll} uparrowBolImg={uparrowImg} handleMove={handleMove} handleOut={handleOut} />
     </div>
