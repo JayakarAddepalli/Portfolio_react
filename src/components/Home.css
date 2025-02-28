@@ -14,6 +14,8 @@
     --contact-text-color: rgba(0, 0, 0, 0.623);
     --grayscale-percent: 100%;
     --opacity-percent:0.3;
+    /* --popUp-background: rgba(0, 136, 255, 0.716);
+    --popUp-border: rgba(0, 136, 255, 0); */
 }
 
 [data-theme="dark"]{
@@ -28,6 +30,8 @@
     --contact-text-color: rgba(241, 241, 241, 0.623);
     --grayscale-percent: 0%;
     --opacity-percent:0.8;
+    /* --popUp-background: rgba(0, 136, 255, 0);
+    --popUp-border: rgba(0, 136, 255, 0.716); */
 }
 
 header{
@@ -102,6 +106,43 @@ header{
   .slider.round:before {
     border-radius: 50%;
   }
+
+.popup{
+    width: 110px;
+    height: 60px;
+    background-color: rgba(0, 136, 255, 0.716);
+    backdrop-filter: blur(5px);
+    position: fixed;
+    top: 50px;
+    right: 60px;
+    font-size: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 5px;
+    border: solid 1px rgba(0, 136, 255, 0);
+    border-radius: 20px;
+    border-top-right-radius: 0px;
+    color: white;
+    font-weight: bold;
+}
+
+.popup>button{
+    width: 50px;
+    height: 25px;
+    font-size: 0.7em;
+    background-color: transparent;
+    color: white;
+    border: solid 1px white;
+    /* color: blue; */
+    border-radius: 20px;
+
+}
+
+.popup>button:hover{
+    cursor: pointer;
+}
 
 nav{
     width: 50%;

@@ -21,6 +21,11 @@ nav{
     bottom: 2.5px !important;
   }
 
+  .popup{
+    top: 37px !important;
+    right: 90px !important;
+}
+
 
 header, nav{
     width: 100% !important;

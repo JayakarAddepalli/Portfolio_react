@@ -14,19 +14,29 @@ function Header(props){
     const menuRef = useRef(null);
 
     const [theme, setTheme] = useState("light");
+    const [showPopup, setShowPopup] = useState(false);
 
     const onToggle = (event)=>{
         if(event.target.checked){
-            setTheme('dark')
+            setTheme('dark');
+            setShowPopup(false);
         }
         else{
-            setTheme('light')
+            setTheme('light');
         }
     }
 
     useEffect(()=>{
         document.documentElement.setAttribute('data-theme', theme)
         localStorage.setItem('theme', theme)
+    }, [theme])
+
+    useEffect(()=>{
+        setTimeout(()=>{
+            if(localStorage.getItem('theme') === 'light'){
+                setShowPopup(true);
+            }
+        }, 10000);
     }, [theme])
 
 
@@ -123,6 +133,12 @@ function Header(props){
                     <input type='checkbox' name='toggleTheme' onClick={onToggle}></input>
                     <span className='slider round'></span>
                 </label>
+                {showPopup && (
+                    <div className='popup'>
+                        <p>Try Dark Mode</p>
+                        <button onClick={()=>setShowPopup(false)}>Dismiss</button>
+                    </div>
+                )}
                 <div id='mousePointer' ref={outerMouse}>
                     <div id='innerPointer' style={props.innerMouse?{transform:'scale(1.5,1.5)', transition:'all 1s'}:{transform:'scale(1,1)', transition:'all 1s'}}></div>
                 </div>
