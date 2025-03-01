@@ -101,15 +101,19 @@ nav a{
 
 
 .navList{
-    max-width: 100%;
-    height: 40vh;
+    max-width: 70%;
+    height: 100vh;
     position: absolute;
     top: 8vh;
-    background-color: rgb(96, 96, 96);
-    backdrop-filter: blur(5px);
+    right: 0px;
+    background-color: var(--nav-small-screen-background);
     flex-direction: column;
     justify-content: space-evenly;
-    display: none;
+    transform: translateX(200px);
+    overflow:hidden;
+    font-size: 1.2em !important;
+    /* Define transition here */
+    transition: transform 0.5s ease-in-out;
 }
 
 
