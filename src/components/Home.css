@@ -17,6 +17,7 @@
     --mouse-background: rgba(0, 0, 0, 0.734);
     /* --popUp-background: rgba(0, 136, 255, 0.716);
     --popUp-border: rgba(0, 136, 255, 0); */
+    --nav-small-screen-background: rgb(28, 26, 35);
 }
 
 [data-theme="dark"]{
@@ -34,6 +35,7 @@
     --mouse-background: rgba(255, 255, 255, 0.734);
     /* --popUp-background: rgba(0, 136, 255, 0);
     --popUp-border: rgba(0, 136, 255, 0.716); */
+    --nav-small-screen-background: rgb(234, 234, 234);
 }
 
 header{
@@ -250,7 +252,7 @@ nav a{
     height: auto;
     padding: 7px;
     margin-right: 15px;
-    color: white;
+    color: var(--nav-text-color);
     text-decoration: none;
 }
 

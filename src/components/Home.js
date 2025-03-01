@@ -55,6 +55,12 @@ function Header(props){
         setClick(!clicked)
     }
 
+    useEffect(()=>{
+        if(clicked){
+            navRef.current.style.transform = "translateX(0px)";
+        }
+    },[clicked])
+
     useEffect(() => {
         function handleResize() {
             if (window.innerWidth > 880) {
@@ -120,7 +126,7 @@ function Header(props){
                     <div className='logo'>
                         <img src={logo} alt="Logo"></img>
                     </div>
-                    <div className='navList' ref={navRef} style={{ visibility: clicked ? 'visible' : 'hidden'}}>
+                    <div className='navList' ref={navRef} style={{ display: clicked ? 'flex' : 'none'}}>
                         <a href="#about" onMouseMove={props.handleMove} onMouseOut={props.handleOut} style={props.abo?{backgroundColor:'rgb(255, 0, 119)', borderRadius:'5px', boxShadow:' 0px 0px 10px rgb(255, 0, 119)'}:{backgroundColor:'transparent'}}>About</a>
                         <a href="#skills" onMouseMove={props.handleMove} onMouseOut={props.handleOut} style={props.ski?{backgroundColor:'rgb(170, 0, 255)', borderRadius:'5px', boxShadow:' 0px 0px 10px rgb(170, 0, 255)'}:{backgroundColor:'transparent'}}>Skills</a>
                         <a href="#projects" onMouseMove={props.handleMove} onMouseOut={props.handleOut} style={props.pro?{backgroundColor:'rgb(0, 157, 255)', borderRadius:'5px', boxShadow:' 0px 0px 10px rgb(0, 157, 255)'}:{backgroundColor:'transparent'}}>Projects</a>
