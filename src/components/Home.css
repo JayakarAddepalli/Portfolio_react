@@ -115,6 +115,7 @@ header{
     width: 110px;
     height: 60px;
     background-color: rgba(0, 136, 255, 0.716);
+    box-shadow: 0 0 10px rgba(0, 136, 255, 0.716);
     backdrop-filter: blur(5px);
     position: fixed;
     top: 50px;
