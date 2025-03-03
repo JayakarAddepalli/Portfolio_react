@@ -5,6 +5,7 @@ import './Home.css'
 import menu from '../assets/menu.png'
 import FeedBackComponent from './feedback'
 import { createPortal } from 'react-dom'
+import popupSound from "../assets/poup.wav"
 
 function Header(props){
 
@@ -34,11 +35,21 @@ function Header(props){
     }, [theme])
 
     useEffect(()=>{
-        setTimeout(()=>{
-            if(localStorage.getItem('theme') === 'light'){
+        let timer; 
+
+        if (theme === 'light') {
+            timer = setTimeout(() => {
+                const sound = new Audio(popupSound);
+                sound.play().catch(() => {
+                    console.log("Autoplay blocked. Will play after user interaction.");
+                });
                 setShowPopup(true);
-            }
-        }, 10000);
+            }, 10000);
+        }
+    
+        return () => {
+            clearTimeout(timer); // Clear previous timeout to prevent multiple sound plays
+        };
     }, [theme])
 
 
